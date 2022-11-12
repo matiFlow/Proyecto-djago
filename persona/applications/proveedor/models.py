@@ -16,5 +16,4 @@ class Proveedor(models.Model):
 
     def __str__(self):
         """Unicode representation of Provedoor."""
-        pass
-
+        return f"Nombre:{self.nombre}   Cuit:{self.cuit}   Telefono: {self.telefono}"

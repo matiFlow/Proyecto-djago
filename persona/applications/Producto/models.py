@@ -15,7 +15,7 @@ class Stock(models.Model):
 
     def __str__(self):
         """Unicode representation of Stock."""
-        pass
+        return f"{self.stock_actual}, {self.stock_minimo}"
 
 
 class Marca(models.Model):
@@ -25,11 +25,11 @@ class Marca(models.Model):
     class Meta:
         """Meta definition for MODELNAME."""
 
-        verbose_name = 'MODELNAME'
-        verbose_name_plural = 'MODELNAMEs'
+        verbose_name = 'Marca'
+        verbose_name_plural = 'Marcas'
 
     def __str__(self):
-        """Unicode representation of MODELNAME."""
+        """Unicode representation of Marcas."""
         return f"{self.marca}"
 
 
@@ -45,7 +45,7 @@ class Tipo(models.Model):
 
     def __str__(self):
         """Unicode representation of Tipo."""
-        pass
+        return f"{self.Tipo}"
 
 
 # Create your models here.
@@ -53,8 +53,8 @@ class Producto(models.Model):
     """Model definition for Producto."""
     proveedores = models.ManyToManyField(Proveedor)
     existencias = models.ForeignKey(Stock, on_delete=models.CASCADE)
-    tipos = models.ForeignKey(Tipo, on_delete=models.CASCADE)
-    marcas = models.ManyToManyField(Marca)
+    tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
+    marca = models.ManyToManyField(Marca)
     precio = models.FloatField("precio de los productos", max_length=50)
     
     
