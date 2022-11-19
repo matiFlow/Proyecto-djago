@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Crear un producto</h1>
+<form method="POST">
+    {% csrf_token %} <!--PARA SEGURIDAD PARA EVITAR EJECUCION CRUZADA, NADIE PUEDE EJECUTAR ESE FORMULARIO-->
+    {{form.as_p}}
+    <input type="submit" value="Crear">
+</form>
+    
+{% endblock content %}
+
+
+    
